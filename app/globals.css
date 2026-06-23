@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink text-fg font-sans antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(90, 209, 227, 0.28);
+}
+
+/* Quiet, instrument-grade scrollbars for the token stream + textarea. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a313d transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2a313d;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a4150;
+  background-clip: content-box;
+}
+
+/* Keyboard focus is always visible, even in reduced-motion mode. */
+:focus-visible {
+  outline: 2px solid #5ad1e3;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* A faint measurement-ruler strip used once, in the header, as the
+   instrument "signature". Built from a repeating linear-gradient so it
+   stays crisp at any width. */
+.ruler {
+  background-image: repeating-linear-gradient(
+    to right,
+    #2a313d 0,
+    #2a313d 1px,
+    transparent 1px,
+    transparent 9px
+  );
+}
